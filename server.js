@@ -10,7 +10,7 @@ var absolutePath = __dirname;
 
 
 //connect to db
-const MONGO_URI = "mongodb://admin:korn4321@ds125183.mlab.com:25183/reactnodecrud" || "mongodb://localhost:27017/NODECRUD";
+const MONGO_URI = process.env.MONGO_URI || "mongodb://localhost:27017/NODECRUD";
 var db = require('./utils/databaseConnection')(MONGO_URI);
 
 const app = express();
@@ -33,7 +33,7 @@ function replyOK(req, res) {
     res.sendStatus(200);
 }
 
-const router = require('./routes/products')(products);
+const router = require('./routes/products')(products,db);
 app.use('/api/products', router);
 
 // Use express's default error handling middleware

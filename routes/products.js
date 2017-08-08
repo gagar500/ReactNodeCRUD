@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router({mergeParams: true});
 
-module.exports =  function(products){  
+module.exports =  function(products,db){  
 
 router.get('/:id', (req, res) => {
     products.getProductById(req.params.id)
@@ -17,7 +17,7 @@ router.get('/:id', (req, res) => {
 });
     
 
-router.get('/:name', (req, res) => {
+router.get('/name/:name', (req, res) => {
     products.getProductByName(req.params.name)
         .then((result) => {
             res.json(result);
@@ -30,7 +30,7 @@ router.get('/:name', (req, res) => {
         });
 });
 
-router.get('/', (req, res) => {
+router.get('/:name', (req, res) => {
     products.getAllProduct()
         .then((result) => {
             res.json(result);
