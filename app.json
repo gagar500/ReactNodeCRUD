@@ -1,0 +1,6 @@
+{
+    "name":"Node API for sample crud",
+    "description":"simple api for test host on heroku",
+    "repository":"https://github.com/gagar500/ReactNodeCRUD",
+    "keyword":["node","express"]
+}
