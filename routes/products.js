@@ -30,7 +30,7 @@ router.get('/name/:name', (req, res) => {
         });
 });
 
-router.get('/:name', (req, res) => {
+router.get('/', (req, res) => {
     products.getAllProduct()
         .then((result) => {
             res.json(result);
